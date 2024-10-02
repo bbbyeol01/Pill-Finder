@@ -1,0 +1,243 @@
+.modal {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: all 0.5s ease;
+    z-index: 0;
+
+    .infoContainer {
+        width: 60vw;
+        min-width: 400px;
+        max-width: 800px;
+        min-height: 80vh;
+        max-height: 80vh;
+        background-color: white;
+        border-radius: 20px;
+        box-shadow: 1px 3px 15px gray;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        overflow: auto;
+
+        .controlContainer {
+            width: 100%;
+            margin: 25px 50px 0 0;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 10px;
+
+            img {
+                height: 25px;
+                cursor: pointer;
+            }
+        }
+
+        .image {
+            width: 80%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+
+            .bookmark {
+                width: 80px;
+                height: 80px;
+                min-width: 50px;
+                min-height: 50px;
+                position: absolute;
+                background-color: transparent;
+                align-self: flex-start;
+                right: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+
+                img {
+                    height: 60%;
+                    width: 60%
+                }
+            }
+
+            img {
+                width: 100%;
+                object-fit: cover;
+                overflow: hidden;
+            }
+        }
+
+        .nameContainer {
+
+
+            width: 80%;
+            display: flex;
+            align-items: flex-start;
+            flex-wrap: nowrap;
+
+            .company {
+                margin-right: 8px;
+                flex-shrink: 0;
+                padding: 5px 10px;
+                border-radius: 15px;
+                background-color: lightcoral;
+                color: white;
+                /* pillType의 크기를 고정 */
+            }
+
+            .name {
+                font-size: 15pt;
+                font-weight: bold;
+                word-break: break-all;
+                margin-top: 2px;
+            }
+
+
+        }
+
+
+
+        .label {
+            width: 80%;
+
+        }
+
+        .symptom {
+            width: 80%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+
+            * {
+                font-size: 12pt;
+                padding: 10px 15px;
+                background-color: #96b9ff;
+                color: white;
+                border-radius: 50px;
+            }
+        }
+
+        .efficacy {
+            width: 80%;
+        }
+
+        .method {
+            width: 80%;
+        }
+
+        // .goToDetail {
+        //     width: 80%;
+        //     height: 20px;
+        //     display: flex;
+        //     justify-content: center;
+        //     align-items: center;
+        //     color: lightgray;
+
+        //     img {
+        //         width: 20px;
+        //         height: 20px;
+        //     }
+        // }
+
+
+
+        .findPharmacy {
+            width: 80%;
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+            margin-bottom: 50px;
+            gap: 10px;
+
+            button {
+                border: none;
+                border-radius: 15px;
+                background-color: #96b9ff;
+                color: white;
+                font-size: 10pt;
+                width: 150px;
+                height: 50px;
+                cursor: pointer;
+            }
+        }
+
+
+
+
+    }
+}
+
+.infoContainer::-webkit-scrollbar {
+    display: none;
+}
+
+
+
+.pillContainer {
+    min-width: 400px;
+    max-width: 1200px;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    .count {
+        width: 100%;
+        text-align: center;
+    }
+
+    .pill-list {
+        display: flex;
+        // justify-content: space-evenly;
+        justify-content: center;
+        align-content: flex-start;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 10px;
+        z-index: 1;
+        margin: 0 auto;
+    }
+
+
+    .loading {
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        font-size: 24px;
+        color: black;
+        opacity: 0;
+        background-color: white;
+        z-index: -999;
+
+        .loadingText,
+        .loadingImg {
+            width: 30px;
+            position: fixed;
+            left: calc(50% - 30px);
+            top: 40%;
+        }
+    }
+
+    .noSearch {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100px;
+        background-color: white;
+    }
+
+
+
+}

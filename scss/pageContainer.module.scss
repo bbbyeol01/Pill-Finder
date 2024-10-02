@@ -1,0 +1,41 @@
+.pageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    margin-top: 10vh;
+
+    .pageList {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        margin: 0 10px 0 10px;
+    }
+
+    .pageBtn,
+    .nextBtn,
+    .prevBtn {
+        width: 40px;
+        height: 40px;
+        border: 1px solid lightgray;
+        color: #888;
+        background-color: white;
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+
+        img {
+            width: 50%;
+        }
+    }
+
+
+    .active {
+        background-color: rgb(150, 185, 255);
+        color: white;
+        font-weight: bolder;
+    }
+}

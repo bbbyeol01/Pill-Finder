@@ -1,0 +1,38 @@
+.iconContainer {
+
+    width: 80%;
+    height: 280px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 130px;
+    opacity: 1;
+    transition: all 0.7s ease;
+
+    img {
+        width: 200px;
+        transition: all 0.7s ease;
+        animation: float 4s ease-in-out infinite;
+        /* 둥둥 떠다니는 애니메이션 */
+        opacity: 1;
+        /* 초기 불투명도 */
+    }
+
+    @keyframes float {
+        0% {
+            transform: translateY(10px);
+            /* 원래 위치 */
+        }
+
+        50% {
+            transform: translateY(35px);
+        }
+
+        100% {
+            transform: translateY(10px);
+            /* 원래 위치로 돌아옴 */
+        }
+    }
+
+
+}

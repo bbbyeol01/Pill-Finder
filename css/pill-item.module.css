@@ -1,0 +1,31 @@
+.pill-item {
+  padding: 20px;
+  width: 150px;
+  height: 120px;
+  /* border: solid lightgray 1px; */
+  border-radius: 20px;
+  box-shadow: 1px 3px 15px lightgray;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.pill-item img {
+  width: 100%;
+  cursor: pointer;
+  background-color: white;
+}
+.pill-item .name {
+  font-size: 12pt;
+  font-weight: bold;
+  width: 100%;
+  height: 20px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.pill-item .name .name-text {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
