@@ -3,7 +3,8 @@
   justify-content: center;
   align-items: flex-start;
   width: 100%;
-  margin-top: 10vh;
+  margin: 5vh;
+  gap: 5px;
 }
 .pageContainer .pageList {
   display: flex;

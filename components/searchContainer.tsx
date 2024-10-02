@@ -10,8 +10,8 @@ export default function SearchContainer() {
 
     const params = useSearchParams();
 
-    const [name, setName] = useState(params.get("name") ? params.get("name") : "");
-    const [type, setType] = useState("itemName");
+    const [name, setName] = useState(params.get("name"));
+    const [type, setType] = useState(params.get("type"));
     const [page, setPage] = useState("1");
     const [size, setSize] = useState("10")
   
@@ -25,9 +25,10 @@ export default function SearchContainer() {
             <div className={styles.search}>
                 <form method="get" onSubmit={handleSubmit} className={styles.searchForm}>
                     <select 
+                    value={type || "itemName"}
                     className={styles.searchOption}
                     onChange={(e : React.ChangeEvent<HTMLSelectElement>) => setType(e.target.value) }>
-                        <option value={type}>이름</option>
+                        <option value="itemName">이름</option>
                         <option value="efcyQesitm">증상</option>
                     </select>
 

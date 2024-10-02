@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from "../css/pageContainer.module.css"
+import { useRouter, useSearchParams } from 'next/navigation';
 
 interface PaginationProps {
   currentPage: number;
@@ -19,10 +20,22 @@ export const Pagination: React.FC<PaginationProps> = ({
   const startPage = Math.floor((currentPage - 1) / numOfPage) * numOfPage + 1;
   const endPage = Math.min(startPage + numOfPage - 1, totalPages);
 
+  const params = useSearchParams();
+  const router = useRouter();
+
   const handlePageClick = (page: number) => {
-    if (page !== currentPage) {
-      onPageChange(page);
+
+    // 이전 url
+    const currentParams = new URLSearchParams(params.toString());
+
+    // page만 변경
+    try{
+      currentParams.set("page", page.toString())
+      router.push(`/search?${currentParams.toString()}`)
+    }catch(error){
+      console.error(error)
     }
+
   };
 
   return (
