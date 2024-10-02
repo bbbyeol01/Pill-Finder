@@ -17,6 +17,7 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: "Pill Finder",
+  icons : "/images/icon/pill-icon.png",
   description: "",
 };
 

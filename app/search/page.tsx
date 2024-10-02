@@ -86,7 +86,7 @@ export default function Search() {
     useEffect(() => {
         const fetchData = async () => {
             // searchContainer 초기화
-            setCurrentPage(params.get("page") || "")
+            // setCurrentPage(params.get("page") || "")
             setPills([]);
             const fetchedList = await getData(name, type, +currentPage, +size);
             setPills(fetchedList.pills);
@@ -120,9 +120,9 @@ export default function Search() {
                                 <strong>{totalItems}</strong>개의 검색 결과가 있습니다.
                             </div> 
                             <div className={styles["pill-list"]}>
-                                { pills.map((pill) => (
+                                { pills.map((pill, index) => (
                                         <PillItem 
-                                            key={pill.code}
+                                            key={`${pill.code}-${index}`}
                                             image={pill.image}
                                             name={pill.name}
                                             company={pill.company}

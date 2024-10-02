@@ -11,7 +11,7 @@ export default function SearchContainer() {
     const params = useSearchParams();
 
     const [name, setName] = useState(params.get("name"));
-    const [type, setType] = useState(params.get("type"));
+    const [type, setType] = useState(params.get("type") || "itemName");
     const [page, setPage] = useState("1");
     const [size, setSize] = useState("10")
   
