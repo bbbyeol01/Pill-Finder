@@ -6,12 +6,8 @@ import { Pharmacy } from "@/types/pharmacy"
 import { Location } from '@/types/location';
 
 
-export default function MapInfo ({pharmacyList, count} : {pharmacyList : any[], count:number}) {
+export default function MapInfo({ pharmacyList, count, moveMap }: { pharmacyList: any[], count: number, moveMap: (location: { latitude: number; longitude: number }) => void }) {
 
-  useEffect(() => {
-    console.log("Updated pharmacy list:", pharmacyList);
-  }, [pharmacyList]); // pharmacyList가 변경될 때마다 출력
- 
   return (
 
     <>
@@ -28,7 +24,17 @@ export default function MapInfo ({pharmacyList, count} : {pharmacyList : any[], 
                             ? pharmacy.distance + "m"
                             : (pharmacy.distance / 1000).toFixed(2) + "km"
                 }
-                 return <Spot key={pharmacy.id} pharmacy={info}/>
+
+                const location : Location = {
+                  latitude: pharmacy.y,  // 위도
+                  longitude: pharmacy.x   // 경도
+                };
+
+                 return <Spot key={pharmacy.id} pharmacy={info}
+                 onClick={() => {
+                  console.log(location)
+                  moveMap({location})
+                }} />
               })
             }
 

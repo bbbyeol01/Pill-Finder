@@ -4,6 +4,7 @@ import { useEffect, useState, useRef } from "react";
 import styles from "@/css/map.module.css";
 import { Map, MapMarker } from 'react-kakao-maps-sdk';
 import MapInfo from "@/components/mapInfo";
+import { Location } from "@/types/location";
 
 export default function Pharmacy() {
   const [myLocation, setMyLocation] = useState({
@@ -15,7 +16,7 @@ export default function Pharmacy() {
   const [pharmacyList, setPharmacyList] = useState<any[]>([])
   const [count, setCount] = useState(0);
 
-  const mapRef = useRef(null)
+  const mapRef = useRef<any>(null)
 
   function getMyLocation () {
     if ("geolocation" in navigator) {
@@ -24,6 +25,15 @@ export default function Pharmacy() {
         setMyLocation({ latitude, longitude });
         setIsLocationFetched(true)
       });
+    }
+  }
+
+  function moveMap( {location} : {location :Location}){
+    console.log(typeof(location))
+    if (mapRef.current) {
+      console.log(mapRef.current)
+      const mapInstance = mapRef.current; // Kakao Map 객체를 참조
+      mapInstance.panTo(new window.kakao.maps.LatLng(location.latitude, location.longitude));
     }
   }
 
@@ -104,14 +114,21 @@ export default function Pharmacy() {
           <Map center={{ lat: myLocation.latitude, lng:myLocation.longitude}} 
           className={styles.map} 
           ref={mapRef}>
-            
+
             <MapMarker position={{lat: myLocation.latitude, lng:myLocation.longitude}}
-            image={myLocationMarker}/>
+            image={myLocationMarker}
+            onClick={() => moveMap({location : myLocation})}/>
 
             {
                pharmacyList.map((pharmacy) => {
+
+                const pharmacyLocation = {
+                  latitude : pharmacy.y, 
+                  longitude : pharmacy.x
+                }
                  return <MapMarker key={pharmacy.id} position={{lat : pharmacy.y, lng:pharmacy.x}}
-                 image={customMarker}/>
+                 image={customMarker}
+                 onClick={() => moveMap({location : pharmacyLocation})}/>
               })
             }
 
@@ -123,7 +140,7 @@ export default function Pharmacy() {
           </div>
 
           {
-            isLocationFetched ? <MapInfo count={count} pharmacyList={pharmacyList}/> : <></>
+            isLocationFetched ? <MapInfo count={count} pharmacyList={pharmacyList} moveMap={moveMap}/> : <></>
           }
           
     
