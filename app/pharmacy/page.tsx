@@ -14,6 +14,7 @@ export default function Pharmacy() {
 
   const [isLocationFetched, setIsLocationFetched] = useState(false); // 위치 정보를 가져왔는지 여부
   const [pharmacyList, setPharmacyList] = useState<any[]>([])
+  const [pagination, setPagination] = useState()
   const [count, setCount] = useState(0);
 
   const mapRef = useRef<any>(null)
@@ -28,7 +29,7 @@ export default function Pharmacy() {
     }
   }
 
-  function moveMap( {location} : {location :Location}){
+  function moveMap( location : Location){
     console.log(typeof(location))
     if (mapRef.current) {
       console.log(mapRef.current)
@@ -54,9 +55,10 @@ export default function Pharmacy() {
 
           ps.keywordSearch("약국", (data, status, pagination) => {
             if (status === kakao.maps.services.Status.OK) {
-              console.log(data.length)
-              setCount(data.length)
-              setPharmacyList(data)
+              console.log(data)
+              setCount(pagination.totalCount)
+              setPharmacyList((prevList) => [...prevList, ...data])
+              setPagination(pagination)
             }
           }, {
               location: new kakao.maps.LatLng(
@@ -110,41 +112,49 @@ export default function Pharmacy() {
 
       <section className={styles.mapContainer}>
         <div className={styles.mapWrapper}>
+          <div className={styles.map} >
+            <Map center={{ lat: myLocation.latitude, lng:myLocation.longitude}} 
+            ref={mapRef}
+            style={{width : "100%", height : "100%"}}>
 
-          <Map center={{ lat: myLocation.latitude, lng:myLocation.longitude}} 
-          className={styles.map} 
-          ref={mapRef}>
+              <MapMarker position={{lat: myLocation.latitude, lng:myLocation.longitude}}
+              image={myLocationMarker}
+              onClick={() => moveMap({location : myLocation})}/>
 
-            <MapMarker position={{lat: myLocation.latitude, lng:myLocation.longitude}}
-            image={myLocationMarker}
-            onClick={() => moveMap({location : myLocation})}/>
+              {
+                pharmacyList.map((pharmacy) => {
 
-            {
-               pharmacyList.map((pharmacy) => {
+                  const pharmacyLocation = {
+                    latitude : pharmacy.y, 
+                    longitude : pharmacy.x
+                  }
+                  return <MapMarker key={pharmacy.id} position={{lat : pharmacy.y, lng:pharmacy.x}}
+                  image={customMarker}
+                  onClick={() => moveMap({location : pharmacyLocation})}/>
+                })
+              }
+            
+            </Map>
 
-                const pharmacyLocation = {
-                  latitude : pharmacy.y, 
-                  longitude : pharmacy.x
-                }
-                 return <MapMarker key={pharmacy.id} position={{lat : pharmacy.y, lng:pharmacy.x}}
-                 image={customMarker}
-                 onClick={() => moveMap({location : pharmacyLocation})}/>
-              })
-            }
-
-          </Map>
-
-          <div className={styles.goToMyLocation}
-          onClick={getMyLocation}>
-            <img src="/images/icon/target-icon.png" alt="" />
+            <div className={styles.goToMyLocation}
+              onClick={getMyLocation}>
+              <img src="/images/icon/target-icon.png" alt="" />
+            </div>
+        
           </div>
 
           {
-            isLocationFetched ? <MapInfo count={count} pharmacyList={pharmacyList} moveMap={moveMap}/> : <></>
+            isLocationFetched ? 
+            <MapInfo count={count} 
+            pharmacyList={pharmacyList} 
+            moveMap={moveMap}
+            pagination={pagination} /> : 
+            <></>
           }
           
-    
+        
         </div>
+   
       </section>
       
     </main>

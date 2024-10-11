@@ -1,15 +1,8 @@
 import { useState, useEffect } from "react";
 import styles from "../css/pill-item.module.css"
+import { PillItemProps } from "@/types/pillItem"
 
-interface PillItemProps {
-    image: any;
-    name: string;
-    company?: string;
-    efficacy?: string;
-    method?: string;
-}
-
-export const PillItem :React.FC<PillItemProps> = ({image, name, company, efficacy, method}) =>  {
+export const PillItem :React.FC<PillItemProps> = ({image, name, company, efficacy, method, onClick}) =>  {
 
     const [img, setImg] = useState("/images/null-img.jpg");
 
@@ -20,11 +13,14 @@ export const PillItem :React.FC<PillItemProps> = ({image, name, company, efficac
     }, [image]);
     
     return (
-        <div className={styles["pill-item"]}>
+        <div className={styles["pill-item"]}
+        onClick={onClick}>
             <img alt={name} src={img}/>
             <div className={styles.name}>
                 <div className={styles["name-text"]}>{name}</div>
             </div>
+
+        
         </div>
     )
 }

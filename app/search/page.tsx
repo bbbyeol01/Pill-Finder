@@ -6,6 +6,8 @@ import { PillItem } from "@/components/pill-item"
 import { useState, useEffect, Suspense } from "react"
 import SearchContainer from "@/components/searchContainer"
 import { Pagination } from "@/components/pagination"
+import { Pill } from "@/types/pill"
+import Modal from "@/components/modal"
 
 const PILL_API_KEY = process.env.NEXT_PUBLIC_PILL_API_KEY;
 
@@ -13,16 +15,6 @@ interface ApiResponse {
     pills: Pill[];
     totalCount: number;
     [key: string]: any;
-}
-
-interface Pill {
-    name: string;
-    company: string;
-    efficacy: string;
-    method: string;
-    image: string;
-    date: string;
-    code: string;
 }
 
 /** open api e약은요 */
@@ -99,6 +91,8 @@ export default function Search() {
         setCurrentPage(page);
       };
 
+
+
     return (
         <main>
       
@@ -128,6 +122,9 @@ export default function Search() {
                                             company={pill.company}
                                             efficacy={pill.efficacy}
                                             method={pill.method}
+                                            onClick={() => {
+                                                <Modal pillItem={pill}/>
+                                            }}
                                         />
                                 ))}
                             </div>

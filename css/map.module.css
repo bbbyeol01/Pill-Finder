@@ -39,10 +39,9 @@
   min-width: 70%;
   background-color: #eee;
   display: flex;
-  align-items: flex-start;
   justify-content: flex-end;
 }
-.main .mapContainer .mapWrapper .goToMyLocation {
+.main .mapContainer .mapWrapper .map .goToMyLocation {
   position: absolute;
   width: 50px;
   height: 50px;
@@ -56,7 +55,7 @@
   align-items: center;
   cursor: pointer;
 }
-.main .mapContainer .mapWrapper .goToMyLocation img {
+.main .mapContainer .mapWrapper .map .goToMyLocation img {
   width: 50%;
   height: 50%;
 }

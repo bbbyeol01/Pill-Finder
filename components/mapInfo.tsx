@@ -5,11 +5,13 @@ import { useState, useEffect } from 'react';
 import { Pharmacy } from "@/types/pharmacy"
 import { Location } from '@/types/location';
 
+export default function MapInfo({ pharmacyList, count, moveMap, pagination }: { pharmacyList: any[], count: number, moveMap: (location : Location) => void, pagination: any }) {
 
-export default function MapInfo({ pharmacyList, count, moveMap }: { pharmacyList: any[], count: number, moveMap: (location: { latitude: number; longitude: number }) => void }) {
+  useEffect(() => {
+    console.log(pagination)
+  }, [pagination])
 
   return (
-
     <>
         <div className={styles.mapInfo}>
             <div className={styles.count}><strong>{count}</strong>개의 검색 결과가 있습니다.</div>
@@ -33,11 +35,26 @@ export default function MapInfo({ pharmacyList, count, moveMap }: { pharmacyList
                  return <Spot key={pharmacy.id} pharmacy={info}
                  onClick={() => {
                   console.log(location)
-                  moveMap({location})
+                  moveMap(location)
                 }} />
               })
             }
 
+            <div className={styles.moreMarker}>
+     
+            {   
+
+              pagination && pagination.hasNextPage ? 
+                (<button className={styles.moreBtn}
+                onClick={() => { pagination.nextPage() }}>
+                  <img src="/images/icon/more-icon.png"/> 더보기
+                </button>)
+                : <></>
+            }
+
+        
+            </div>
+          
         </div>
 
     </>
