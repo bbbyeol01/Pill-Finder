@@ -6,40 +6,12 @@ import { Pharmacy } from "@/types/pharmacy"
 import { Location } from '@/types/location';
 
 
-export default function MapInfo ({location} : {location : Location}) {
-  const [pharmacyList, setPharmacyList] = useState<any[]>([])
-  const [count, setCount] = useState(0);
+export default function MapInfo ({pharmacyList, count} : {pharmacyList : any[], count:number}) {
 
   useEffect(() => {
     console.log("Updated pharmacy list:", pharmacyList);
   }, [pharmacyList]); // pharmacyList가 변경될 때마다 출력
-
-  useEffect(() => {
-    // Kakao Maps API 로드 후 실행될 코드
-      if (window.kakao && window.kakao.maps) {
-        kakao.maps.load(() => {
-
-          // 검색 객체
-          const ps = new kakao.maps.services.Places();
-
-          ps.keywordSearch("약국", (data, status, pagination) => {
-            if (status === kakao.maps.services.Status.OK) {
-              console.log(data.length)
-              setCount(data.length)
-              setPharmacyList(data)
-            }
-          }, {
-              location: new kakao.maps.LatLng(
-                location.latitude,
-                location.longitude
-              ), // 중심 위치
-              radius: 1 * 1000, // 반경 1km
-              sort: "distance",
-          });
-        });
-      }
-  }, [location]);
-
+ 
   return (
 
     <>
