@@ -13,8 +13,8 @@ export default function Pharmacy() {
   });
 
   const [isLocationFetched, setIsLocationFetched] = useState(false); // 위치 정보를 가져왔는지 여부
-  const [pharmacyList, setPharmacyList] = useState<any[]>([])
-  const [pagination, setPagination] = useState()
+  const [pharmacyList, setPharmacyList] = useState<any[]>([]); // Pharmacy는 적절한 타입으로 설정
+  const [pagination, setPagination] = useState<any>()
   const [count, setCount] = useState(0);
 
   const mapRef = useRef<any>(null)
@@ -66,7 +66,7 @@ export default function Pharmacy() {
                 myLocation.longitude
               ), // 중심 위치
               radius: 1 * 1000, // 반경 1km
-              sort: "distance",
+              sort: kakao.maps.services.SortBy.DISTANCE,
           });
         });
       }
@@ -119,18 +119,18 @@ export default function Pharmacy() {
 
               <MapMarker position={{lat: myLocation.latitude, lng:myLocation.longitude}}
               image={myLocationMarker}
-              onClick={() => moveMap({location : myLocation})}/>
+              onClick={() => moveMap(myLocation)}/>
 
               {
                 pharmacyList.map((pharmacy) => {
 
-                  const pharmacyLocation = {
+                  const pharmacyLocation : Location = {
                     latitude : pharmacy.y, 
                     longitude : pharmacy.x
                   }
                   return <MapMarker key={pharmacy.id} position={{lat : pharmacy.y, lng:pharmacy.x}}
                   image={customMarker}
-                  onClick={() => moveMap({location : pharmacyLocation})}/>
+                  onClick={() => moveMap(pharmacyLocation)}/>
                 })
               }
             
