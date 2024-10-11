@@ -1,13 +1,10 @@
 "use client"
 import { Pill } from "@/types/pill"
-import styles from "@/css/search.module.css"
 import { useSearchParams } from "next/navigation"
-import { PillItem } from "@/components/pill-item"
 import { useState, useEffect, Suspense } from "react"
 import SearchContainer from "@/components/searchContainer"
 import { Pagination } from "@/components/pagination"
-import Modal from "@/components/modal"
-
+import PillContainer from "./pillContainer"
 
 const PILL_API_KEY = process.env.NEXT_PUBLIC_PILL_API_KEY;
 
@@ -69,7 +66,7 @@ export default function Search(){
         const params = useSearchParams();
     const name = params.get("name") || "";
     const type = params.get("type") || "efcyQesitm";
-    const page = params.get("page") || 1
+    const page = params.get("page") || 0
     const [pills, setPills] = useState<Pill[]>([]);
 
     const [currentPage, setCurrentPage] = useState(params.get("page") || 1)
@@ -98,40 +95,9 @@ export default function Search(){
         <main>
             <SearchContainer/>
    
-                <section className={styles.pillContainer}>
-                    {
-                        pills.length === 0 ? (
-                            <div className={styles.noSearch}>
-                                <p>검색 결과가 없습니다.</p>
-                            </div>
-                        ) :
-                        
-                        (
-                            <>
-
-                            <div className={styles.count}>
-                                <strong>{totalItems}</strong>개의 검색 결과가 있습니다.
-                            </div> 
-                            <div className={styles["pill-list"]}>
-                                { pills.map((pill, index) => (
-                                        <PillItem 
-                                            key={`${pill.code}-${index}`}
-                                            image={pill.image}
-                                            name={pill.name}
-                                            company={pill.company}
-                                            efficacy={pill.efficacy}
-                                            method={pill.method}
-                                            onClick={() => {
-                                                <Modal pillItem={pill}/>
-                                            }}
-                                        />
-                                ))}
-                            </div>
-                            </>
-
-)
-}   
-                </section>
+                    <Suspense fallback={<h5>Loading...</h5>}>
+                        <PillContainer totalItems={totalItems} pills={pills}/>
+                    </Suspense>
 
                 <Pagination 
                     currentPage={Number(currentPage)}

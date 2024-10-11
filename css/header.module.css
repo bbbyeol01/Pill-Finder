@@ -5,7 +5,7 @@
   position: fixed;
   display: flex;
   justify-content: center;
-  width: 100%;
+  width: 100vw;
   height: 70px;
   z-index: 99999;
 }
@@ -85,4 +85,28 @@
   gap: 20px;
   padding: 15px;
   margin-top: 160px;
+}
+
+@media (max-width: 767px) {
+  .infoContainer {
+    width: 80vw;
+  }
+
+  .nameContainer {
+    display: flex;
+    align-items: center;
+  }
+
+  .profile-image {
+    display: block;
+  }
+
+  .logo {
+    visibility: hidden;
+  }
+}
+@media (max-width: 991px) {
+  .count {
+    margin: 3vh;
+  }
 }
