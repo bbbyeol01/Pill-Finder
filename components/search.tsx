@@ -21,7 +21,7 @@ interface ApiResponse {
 /** open api e약은요 */
 async function getData(userInput: string | "", searchType: string | null, pageNo: number, numOfRows: number): Promise<ApiResponse> {
 
-    const url = `http://apis.data.go.kr/1471000/DrbEasyDrugInfoService/getDrbEasyDrugList?ServiceKey=${PILL_API_KEY}&type=json&pageNo=${pageNo}&numOfRows=${numOfRows}&${searchType}=${userInput}`;
+    const url = `https://apis.data.go.kr/1471000/DrbEasyDrugInfoService/getDrbEasyDrugList?ServiceKey=${PILL_API_KEY}&type=json&pageNo=${pageNo}&numOfRows=${numOfRows}&${searchType}=${userInput}`;
 
     const pills: Pill[] = [];
 
