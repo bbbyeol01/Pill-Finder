@@ -86,14 +86,14 @@ export default function Search() {
     useEffect(() => {
         const fetchData = async () => {
             // searchContainer 초기화
-            // setCurrentPage(params.get("page") || "")
+            setCurrentPage(params.get("page") || "")
             setPills([]);
             const fetchedList = await getData(name, type, +currentPage, +size);
             setPills(fetchedList.pills);
             setTotalItems(fetchedList.totalCount)
         };
         fetchData();
-    }, [params]);
+    }, [name, type, params]);
 
     const handlePageChange = (page: number) => {
         setCurrentPage(page);
@@ -105,7 +105,6 @@ export default function Search() {
 
             <SearchContainer/>
 
-            <Suspense fallback={<h1>Loading...</h1>}>
                 <section className={styles.pillContainer}>
                     {
                         pills.length === 0 ? (
@@ -116,6 +115,7 @@ export default function Search() {
                         
                         (
                             <>
+
                             <div className={styles.count}>
                                 <strong>{totalItems}</strong>개의 검색 결과가 있습니다.
                             </div> 
@@ -132,10 +132,10 @@ export default function Search() {
                                 ))}
                             </div>
                             </>
-                        )
-                    }   
+
+)
+}   
                 </section>
-            </Suspense>
 
             <Pagination 
                 currentPage={+currentPage}

@@ -1,0 +1,71 @@
+.spot {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 15px;
+    gap: 20px;
+    padding: 20px;
+
+
+    .spotInfo {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+
+        .nameContainer {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+
+            .name {
+                font-size: 14pt;
+                font-weight: bold;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                max-width: 110px;
+            }
+
+            .distance{
+                
+            }
+
+
+        }
+
+        .addr {
+            word-break: keep-all;
+        }
+
+
+    }
+
+
+    .goToSpot {
+        width: 50px;
+        min-width: 50px;
+        background: none;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .spotNavigate {
+            padding: 10px;
+            background-color: #96b9ff;
+            border-radius: 70px;
+            width: 70%;
+            height: 70%;
+            cursor: pointer;
+        }
+    }
+
+
+}
+
+
+.spot:hover {
+    outline: solid 2px #96b9ff;
+}
