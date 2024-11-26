@@ -5,6 +5,7 @@ import { useState, useEffect, Suspense } from "react"
 import SearchContainer from "@/components/searchContainer"
 import { Pagination } from "@/components/pagination"
 import PillContainer from "./pillContainer"
+import PillModal from "./pillModal"
 
 const PILL_API_KEY = process.env.NEXT_PUBLIC_PILL_API_KEY;
 
@@ -63,11 +64,13 @@ async function getData(userInput: string | "", searchType: string | null, pageNo
 }
 
 export default function Search(){
-        const params = useSearchParams();
+    const params = useSearchParams();
     const name = params.get("name") || "";
     const type = params.get("type") || "efcyQesitm";
     const page = params.get("page") || 0
     const [pills, setPills] = useState<Pill[]>([]);
+    const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
 
     const [currentPage, setCurrentPage] = useState(params.get("page") || 1)
     const [size, setSize] = useState( params.get("size") || 10);

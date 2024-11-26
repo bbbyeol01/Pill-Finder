@@ -1,4 +1,4 @@
-# Pill finder
+# Pill Finder
 
 <!-- <img width="1440" alt="index" src="https://github.com/user-attachments/assets/1d941c70-7916-4e97-b655-1cc9a935eca6"> -->
 
@@ -26,13 +26,13 @@ Design, FrontEnd : 임새별
 
 <br>
 
-### ️기간
+### 역할/ 기간
 
 `24. 09. 10 - 24. 09. 24(14일)`
 
 <br>
 
-### 기술 스택
+### 언어 및 기술
 
 ![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat&logo=nextdotjs&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=TypeScript&logoColor=white)
@@ -40,3 +40,12 @@ Design, FrontEnd : 임새별
 ![Axios](https://img.shields.io/badge/Axios-5A29E4?style=flat&logo=axios&logoColor=white)
 
 <!-- ![Kakao Map](https://img.shields.io/badge/KakaoMap-FFCD00?style=flat&logo=kakao&logoColor=black) -->
+
+<br>
+
+<!-- ### 색상
+
+![white](https://img.shields.io/badge/white-ffffff?style=flat&logo=&logoColor=black)
+![lightgray](https://img.shields.io/badge/lightgray-d3d3d3?style=flat&logo=&logoColor=black)
+![skyblue](https://img.shields.io/badge/skyblue-96b9ff?style=flat&logo=&logoColor=white)
+![lightcoral](https://img.shields.io/badge/lightcoral-f08080?style=flat&logo=&logoColor=white) -->

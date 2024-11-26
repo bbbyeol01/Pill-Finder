@@ -11,12 +11,19 @@ export default function PillContainer ({totalItems, pills} : {totalItems : numbe
     const [showModal, setShowModal] = useState<boolean>(false);
 
 
-    function handleModalCancel(){
+    function handleClick(pill : Pill){
+        setSelectedPill(pill);
+        setShowModal(true);
+    }
+
+    function handleClose(){
+        setSelectedPill(null);
         setShowModal(false);
     }
 
     return (
         <>
+        { showModal &&  <PillModal onClose={handleClose} pill={selectedPill}/> }
         <section className={styles.pillContainer}>
         <div className={styles.count}>
                 <strong>{totalItems}</strong>개의 검색 결과가 있습니다.
@@ -27,13 +34,12 @@ export default function PillContainer ({totalItems, pills} : {totalItems : numbe
                             key={`${pill.code}-${index}`}
                             image={pill.image}
                             name={pill.name}
-                            handleClick={() => { setSelectedPill(pill); setShowModal(true); }}
+                            handleClick={() => { handleClick(pill) }}
                         />
                 ))}
             </div>
            
         </section>
-        <PillModal pill={selectedPill} show={showModal} handleClick={handleModalCancel}/>
         </>
 
             )

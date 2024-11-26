@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react";
 import styles from "../css/pill-item.module.css"
-import PillModal from "./pillModal";
-import { Pill } from "@/types/pill";
 
 export interface PillItemProps {
     image: any;
