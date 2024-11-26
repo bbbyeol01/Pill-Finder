@@ -19,10 +19,10 @@
         flex-direction: column;
         align-items: center;
         gap: 5vh;
-        overflow: auto;
+        overflow: scroll;
         width: 60%;
-        max-width: 70%;
         border-radius: 20px;
+        max-height: 65vh;
 
         .nameContainer {
             width: 100%;
