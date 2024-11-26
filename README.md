@@ -13,6 +13,12 @@ Open API를 활용한 일반의약품 검색 페이지입니다. 공공데이터
 
 <br>
 
+### URL
+
+https://pill-finder.vercel.app/
+
+<br>
+
 ### 역할
 
 개인 프로젝트<br>
