@@ -1,36 +1,33 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Pill finder
 
-## Getting Started
+<img width="1440" alt="index" src="https://github.com/user-attachments/assets/1d941c70-7916-4e97-b655-1cc9a935eca6">
 
-First, run the development server:
+<img width="1440" alt="search" src="https://github.com/user-attachments/assets/7953c6d5-4cf5-46a6-887d-1e94adc23d64">
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+<br>
+<br>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 주제
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Open API를 활용한 일반의약품 검색 페이지입니다. 공공데이터에서 제공하는 open api(e약은요)를 사용하여 4,000개 이상의 약에 대한 이름, 성분, 효능, 복용법을 제공합니다.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+<br>
 
-## Learn More
+### 역할
 
-To learn more about Next.js, take a look at the following resources:
+개인 프로젝트<br>
+Design, FrontEnd : 임새별
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+<br>
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### ️기간
 
-## Deploy on Vercel
+`24. 09. 10 - 24. 09. 24(14일)`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+<br>
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 기술 스택
+
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat&logo=nextdotjs&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=TypeScript&logoColor=white)
+![SCSS](https://img.shields.io/badge/SCSS-CC6699?style=flat&logo=sass&logoColor=white)

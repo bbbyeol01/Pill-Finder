@@ -1,12 +1,22 @@
 import styles from "@/css/search.module.css"
 import { PillItem } from "@/components/pill-item"
-import Modal from "@/components/modal"
+import { useState } from "react"
+import PillModal from "./pillModal"
+import { Pill } from "@/types/pill"
 
 
+export default function PillContainer ({totalItems, pills} : {totalItems : number, pills:Pill[]}) {
 
-export default function PillContainer ({totalItems, pills} : {totalItems : number, pills:any[]}) {
+    const [selectedPill, setSelectedPill] = useState<Pill | null>(null);
+    const [showModal, setShowModal] = useState<boolean>(false);
+
+
+    function handleModalCancel(){
+        setShowModal(false);
+    }
 
     return (
+        <>
         <section className={styles.pillContainer}>
         <div className={styles.count}>
                 <strong>{totalItems}</strong>개의 검색 결과가 있습니다.
@@ -17,19 +27,15 @@ export default function PillContainer ({totalItems, pills} : {totalItems : numbe
                             key={`${pill.code}-${index}`}
                             image={pill.image}
                             name={pill.name}
-                            company={pill.company}
-                            efficacy={pill.efficacy}
-                            method={pill.method}
-                            onClick={() => {
-                                <Modal pillItem={pill}/>
-                            }}
+                            handleClick={() => { setSelectedPill(pill); setShowModal(true); }}
                         />
                 ))}
             </div>
+           
+        </section>
+        <PillModal pill={selectedPill} show={showModal} handleClick={handleModalCancel}/>
+        </>
 
-
-
-    </section>
             )
 
 }

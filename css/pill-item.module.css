@@ -1,7 +1,7 @@
 .pill-item {
   padding: 20px;
-  width: 130px;
-  height: 110px;
+  width: 200px;
+  height: 180px;
   /* border: solid lightgray 1px; */
   border-radius: 20px;
   box-shadow: 1px 3px 15px lightgray;
@@ -28,4 +28,11 @@
   height: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+@media (max-width: 575px) {
+  .pill-item {
+    width: 150px;
+    height: 130px;
+  }
 }

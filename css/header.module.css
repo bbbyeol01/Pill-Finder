@@ -9,6 +9,13 @@
   height: 70px;
   z-index: 99999;
 }
+.header a {
+  text-decoration: none;
+  color: black;
+}
+.header a:hover {
+  text-decoration: underline;
+}
 .header section {
   display: flex;
   align-items: center;

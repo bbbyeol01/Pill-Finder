@@ -1,32 +1,35 @@
 @charset "UTF-8";
-.modal {
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  background-color: rgba(0, 0, 0, 0.4);
+.nameContainer {
+  width: 80%;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  transition: all 0.5s ease;
-  z-index: 0;
+  align-items: flex-start;
+  flex-wrap: nowrap;
 }
-.modal .infoContainer {
-  width: 60vw;
-  min-width: 400px;
-  max-width: 800px;
-  min-height: 80vh;
-  max-height: 80vh;
+.nameContainer .company {
+  margin-right: 8px;
+  flex-shrink: 0;
+  padding: 5px 10px;
+  border-radius: 10px;
+  background-color: lightcoral;
+  color: white;
+  /* pillType의 크기를 고정 */
+}
+.nameContainer .name {
+  font-size: 14pt;
+  font-weight: bold;
+  word-break: break-all;
+  margin-top: 2px;
+}
+
+.infoContainer {
   background-color: white;
-  border-radius: 20px;
-  box-shadow: 1px 3px 15px gray;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
   overflow: auto;
 }
-.modal .infoContainer .controlContainer {
+.infoContainer .controlContainer {
   width: 100%;
   margin: 25px 50px 0 0;
   display: flex;
@@ -34,18 +37,18 @@
   align-items: center;
   gap: 10px;
 }
-.modal .infoContainer .controlContainer img {
+.infoContainer .controlContainer img {
   height: 25px;
   cursor: pointer;
 }
-.modal .infoContainer .image {
+.infoContainer .image {
   width: 80%;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
 }
-.modal .infoContainer .image .bookmark {
+.infoContainer .image .bookmark {
   width: 80px;
   height: 80px;
   min-width: 50px;
@@ -59,40 +62,19 @@
   justify-content: center;
   cursor: pointer;
 }
-.modal .infoContainer .image .bookmark img {
+.infoContainer .image .bookmark img {
   height: 60%;
   width: 60%;
 }
-.modal .infoContainer .image img {
+.infoContainer .image img {
   width: 100%;
   object-fit: cover;
   overflow: hidden;
 }
-.modal .infoContainer .nameContainer {
-  width: 80%;
-  display: flex;
-  align-items: flex-start;
-  flex-wrap: nowrap;
-}
-.modal .infoContainer .nameContainer .company {
-  margin-right: 8px;
-  flex-shrink: 0;
-  padding: 5px 10px;
-  border-radius: 15px;
-  background-color: lightcoral;
-  color: white;
-  /* pillType의 크기를 고정 */
-}
-.modal .infoContainer .nameContainer .name {
-  font-size: 15pt;
-  font-weight: bold;
-  word-break: break-all;
-  margin-top: 2px;
-}
-.modal .infoContainer .label {
+.infoContainer .label {
   width: 80%;
 }
-.modal .infoContainer .symptom {
+.infoContainer .symptom {
   width: 80%;
   display: flex;
   align-items: center;
@@ -101,20 +83,20 @@
   margin-bottom: 20px;
   flex-wrap: wrap;
 }
-.modal .infoContainer .symptom * {
+.infoContainer .symptom * {
   font-size: 12pt;
   padding: 10px 15px;
   background-color: #96b9ff;
   color: white;
   border-radius: 50px;
 }
-.modal .infoContainer .efficacy {
+.infoContainer .efficacy {
   width: 80%;
 }
-.modal .infoContainer .method {
+.infoContainer .method {
   width: 80%;
 }
-.modal .infoContainer .findPharmacy {
+.infoContainer .findPharmacy {
   width: 80%;
   display: flex;
   justify-content: center;
@@ -122,7 +104,7 @@
   margin-bottom: 50px;
   gap: 10px;
 }
-.modal .infoContainer .findPharmacy button {
+.infoContainer .findPharmacy button {
   border: none;
   border-radius: 15px;
   background-color: #96b9ff;
