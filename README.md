@@ -1,6 +1,7 @@
 # Pill Finder
 
 <!-- <img width="1440" alt="index" src="https://github.com/user-attachments/assets/1d941c70-7916-4e97-b655-1cc9a935eca6"> -->
+<!-- ![pill_finder_2](https://github.com/user-attachments/assets/f3c5ac39-a2d7-4cbf-a999-fc274c9611f6) -->
 
 <img width="1440" alt="search" src="https://github.com/user-attachments/assets/7953c6d5-4cf5-46a6-887d-1e94adc23d64">
 
