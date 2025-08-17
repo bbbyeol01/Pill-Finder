@@ -3,7 +3,7 @@
 import styles from "../css/searchContainer.module.css";
 
 import { useRouter, useSearchParams } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function SearchContainer() {
   const router = useRouter();
@@ -20,6 +20,10 @@ export default function SearchContainer() {
     router.push(`/search?name=${name}&type=${type}&page=${page}&size=${size}`);
   };
 
+  useEffect(() => {
+    router.push(`/search?name=${name}&type=${type}&page=${page}&size=${size}`);
+  }, [type]);
+
   return (
     <section className={styles.searchContainer}>
       <div className={styles.search}>
@@ -35,8 +39,12 @@ export default function SearchContainer() {
               setType(e.target.value)
             }
           >
-            <option value="itemName">이름</option>
-            <option value="efcyQesitm">증상</option>
+            <option selected={type === "itemName"} value="itemName">
+              이름
+            </option>
+            <option selected={type === "efcyQesitm"} value="efcyQesitm">
+              증상
+            </option>
           </select>
 
           <input
