@@ -36,7 +36,6 @@ main {
     align-items: center;
 
     @media(max-width: 767px) {
-        height: 100%;
         min-height: 100%;
     }
 }

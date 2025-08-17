@@ -32,7 +32,6 @@ main {
 }
 @media (max-width: 767px) {
   main {
-    height: 100%;
     min-height: 100%;
   }
 }
