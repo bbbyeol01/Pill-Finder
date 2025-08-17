@@ -1,0 +1,9 @@
+.rights {
+  align-items: center;
+  justify-content: center;
+  color: lightgray;
+  font-size: 14px;
+  margin-bottom: 0;
+  bottom: 0;
+  position: absolute;
+}
