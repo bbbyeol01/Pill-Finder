@@ -1,7 +1,6 @@
 .pill-item {
   padding: 20px;
   width: 200px;
-  height: 160px;
   /* border: solid lightgray 1px; */
   border-radius: 20px;
   box-shadow: 1px 3px 15px lightgray;
@@ -32,6 +31,5 @@
 @media (max-width: 575px) {
   .pill-item {
     width: 120px;
-    height: 100px;
   }
 }
