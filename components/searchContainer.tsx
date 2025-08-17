@@ -2,10 +2,11 @@
 
 import styles from "../css/searchContainer.module.css";
 
-import { useRouter, useSearchParams } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function SearchContainer() {
+  const pathname = usePathname();
   const router = useRouter();
 
   const params = useSearchParams();
@@ -21,6 +22,7 @@ export default function SearchContainer() {
   };
 
   useEffect(() => {
+    if (pathname === "/") return; // 홈이면 URL 변경 금지
     router.push(`/search?name=${name}&type=${type}&page=${page}&size=${size}`);
   }, [type]);
 
